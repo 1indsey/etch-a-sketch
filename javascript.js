@@ -27,6 +27,14 @@ newGridBtn.addEventListener("click", () => {
         userInput = prompt("Please choose a number between 1 and 100");
     }
         console.log(userInput);
+        divs.forEach((divs) => {
+            container.removeChild(divs);
+        });
+        for (let i = 0; i < (userInput ** 2); i++) {
+            const div2 = document.createElement('div');
+            div2.classList.add('square');
+            container.appendChild(div2);
+            };
     });
 
 
@@ -35,7 +43,7 @@ divs.forEach((divs) => {
 removeGridBtn.addEventListener ("click", () => {
     container.removeChild(divs);
 })});
-//this section removes the existing grid on button click
+//this section removes the existing grid on button click (TEST ONLY)
 
 //take userInput
 //remove existing grid - container.removeChild('.square')
