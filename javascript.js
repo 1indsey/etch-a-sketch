@@ -1,4 +1,4 @@
-const container = document.querySelector('#container');
+const container = document.querySelector('.flexContainer');
 //store container div in variable so we can append child divs inside it
 
 
@@ -30,9 +30,13 @@ newGridBtn.addEventListener("click", () => {
         divs.forEach((divs) => {
             container.removeChild(divs);
         });
+        container.classList.remove('flexContainer');
+        container.classList.add('gridContainer');
+        container.style.gridTemplateColumns = `repeat(${userInput}, 1fr)`;
+        container.style.gridTemplateRows = `repeat(${userInput}, 1fr)`;
         for (let i = 0; i < (userInput ** 2); i++) {
             const div2 = document.createElement('div');
-            div2.classList.add('square');
+            div2.classList.add('gridSquare');
             container.appendChild(div2);
             };
     });
@@ -49,3 +53,8 @@ removeGridBtn.addEventListener ("click", () => {
 //remove existing grid - container.removeChild('.square')
 //replace with new grid, each side has the # of divs given by user
 //new grid should take up same total space as previous grid
+
+
+function createNewGrid() {
+
+}
