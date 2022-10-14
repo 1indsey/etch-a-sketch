@@ -31,21 +31,28 @@ function getUserInput() {
     console.log(userInput);
 };
 
+function removeDivs() {
+    divs.forEach((divs) => {
+        container.removeChild(divs)
+    })};
+
+function createNewGrid() {
+    container.classList.remove('flexContainer');
+    container.classList.add('gridContainer');
+    container.style.gridTemplateColumns = `repeat(${userInput}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${userInput}, 1fr)`;
+    for (let i = 0; i < (userInput ** 2); i++) {
+        const div2 = document.createElement('div');
+        div2.classList.add('gridSquare');
+        container.appendChild(div2);
+    };
+};
+
 const newGridBtn = document.querySelector('#newGridBtn');
 newGridBtn.addEventListener("click", () => {
     getUserInput();
-        divs.forEach((divs) => {
-            container.removeChild(divs);
-        });
-        container.classList.remove('flexContainer');
-        container.classList.add('gridContainer');
-        container.style.gridTemplateColumns = `repeat(${userInput}, 1fr)`;
-        container.style.gridTemplateRows = `repeat(${userInput}, 1fr)`;
-        for (let i = 0; i < (userInput ** 2); i++) {
-            const div2 = document.createElement('div');
-            div2.classList.add('gridSquare');
-            container.appendChild(div2);
-            };
+    removeDivs();
+    createNewGrid();
     });
 
 
@@ -60,8 +67,3 @@ removeGridBtn.addEventListener ("click", () => {
 //remove existing grid - container.removeChild('.square')
 //replace with new grid, each side has the # of divs given by user
 //new grid should take up same total space as previous grid
-
-
-function createNewGrid() {
-
-}
