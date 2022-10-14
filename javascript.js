@@ -46,7 +46,15 @@ function createNewGrid() {
         div2.classList.add('gridSquare');
         container.appendChild(div2);
     };
+    const divs2 = document.querySelectorAll(".gridSquare");
+    divs2.forEach((divs2) => {
+        divs2.addEventListener("mouseover", () => {
+            divs2.classList.add('colorChange');
+        });
+    });
 };
+
+
 
 const newGridBtn = document.querySelector('#newGridBtn');
 newGridBtn.addEventListener("click", () => {
@@ -54,7 +62,6 @@ newGridBtn.addEventListener("click", () => {
     removeDivs();
     createNewGrid();
     });
-
 
 const removeGridBtn = document.querySelector('#removeGridTest');
 divs.forEach((divs) => {

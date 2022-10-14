@@ -14,14 +14,10 @@
 }
 
 .square {
-    background-color: teal;
+    background-color: lavender;
     width: 50px;
     height: 50px;
     align-items: center;
-}
-
-.colorChange {
-    background-color: black;
 }
 
 .gridContainer {
@@ -36,7 +32,10 @@
 }
 
 .gridSquare {
-    border: 1px solid rgb(32, 213, 116);
-    background-color: red;
+    /* border: 1px solid rgb(32, 213, 116); */
+    background-color: lavender;
 }
 
+.colorChange {
+    background-color: black;
+}
