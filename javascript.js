@@ -20,13 +20,20 @@ divs.forEach((divs) => {
 
 let userInput;
 
+function getUserInput() {
+    userInput = prompt("How many squares would you like each side of the grid to have?");
+    if (userInput === null) {
+        return;
+    };
+    while (isNaN(userInput) || userInput > 100 || userInput < 1) {
+        userInput = prompt("Invalid answer! Please choose a number between 1 and 100");
+    };
+    console.log(userInput);
+};
+
 const newGridBtn = document.querySelector('#newGridBtn');
 newGridBtn.addEventListener("click", () => {
-    userInput = prompt("How many squares would you like each side of the grid to have?");
-    while (userInput > 100) {
-        userInput = prompt("Please choose a number between 1 and 100");
-    }
-        console.log(userInput);
+    getUserInput();
         divs.forEach((divs) => {
             container.removeChild(divs);
         });
