@@ -36,15 +36,16 @@ function removeDivs() {
         container.removeChild(divs)
     })};
 
+
 function createNewGrid() {
-    container.classList.remove('flexContainer');
+    container.innerHTML = ""; //clears current grid
     container.classList.add('gridContainer');
     container.style.gridTemplateColumns = `repeat(${userInput}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${userInput}, 1fr)`;
     for (let i = 0; i < (userInput ** 2); i++) {
-        const div2 = document.createElement('div');
-        div2.classList.add('gridSquare');
-        container.appendChild(div2);
+        const div = document.createElement('div');
+        div.classList.add('gridSquare');
+        container.appendChild(div);
     };
     const divs2 = document.querySelectorAll(".gridSquare");
     divs2.forEach((divs2) => {
@@ -55,22 +56,21 @@ function createNewGrid() {
 };
 
 
-
 const newGridBtn = document.querySelector('#newGridBtn');
 newGridBtn.addEventListener("click", () => {
     getUserInput();
-    removeDivs();
     createNewGrid();
     });
 
+function clearGrid() {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    };
+};
+    
 const removeGridBtn = document.querySelector('#removeGridTest');
 divs.forEach((divs) => {
 removeGridBtn.addEventListener ("click", () => {
     container.removeChild(divs);
 })});
 //this section removes the existing grid on button click (TEST ONLY)
-
-//take userInput
-//remove existing grid - container.removeChild('.square')
-//replace with new grid, each side has the # of divs given by user
-//new grid should take up same total space as previous grid
